@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================
+   GHOSTMADE LABS — CREAM LIGHT THEME + NEON GREEN
+   ========================================= */
+:root {
+  /* Base (cream) */
+  --background: #fbf6ea;            /* soft cream */
+  --foreground: #0f1720;            /* deep charcoal text */
+
+  /* Surfaces */
+  --card: #fffaf0;                  /* warmer white */
+  --card-foreground: #0f1720;
+  --popover: #fffaf0;
+  --popover-foreground: #0f1720;
+
+  /* Brand accent (keep your electric green) */
+  --primary: #00ff94;
+  --primary-foreground: #0b0f14;    /* still dark so green buttons read well */
+
+  /* Neutrals */
+  --secondary: #f2ead7;             /* soft beige surface */
+  --secondary-foreground: #0f1720;
+
+  --muted: #f5efdf;                 /* subtle background tint */
+  --muted-foreground: #556372;      /* readable gray */
+
+  --accent: #00ff94;
+  --accent-foreground: #0b0f14;
+
+  /* System */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  /* Borders / inputs */
+  --border: #e6dcc7;                /* warm border */
+  --input: #f2ead7;                 /* input bg */
+
+  /* Focus ring should still glow green */
+  --ring: #00ff94;
+
+  --radius: 0.5rem;
+
+  /* Glow tuned for light theme */
+  --glow-primary: 0 0 18px rgba(0, 255, 148, 0.22);
+  --glow-subtle: 0 0 36px rgba(0, 255, 148, 0.08);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-space-grotesk);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-color: var(--background);
+  }
+}
+
+/* Glow utilities */
+.glow-primary {
+  box-shadow: var(--glow-primary);
+}
+.text-glow {
+  text-shadow: 0 0 18px rgba(0, 255, 148, 0.35);
+}
+
+/* Custom scrollbar (light theme) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fbf6ea;
+}
+::-webkit-scrollbar-thumb {
+  background: #e6dcc7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff94;
+}
